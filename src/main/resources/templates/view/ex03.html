@@ -19,7 +19,7 @@
         <li th:each="vo:${list}">
             방법1
             <!--<a href="ex03_result?num=${vo.num}">[[${vo.name}]]</a>-->
-            <a th:href="@{ex03_result(num=${vo.num}, name=${vo.name}, age=${vo.age})}">[[${vo.name}]]</a>
+            <a th:href="@{ex03_result(num=${vo.num}, name=${vo.name})}">[[${vo.name}]]</a>
 
             <br>
             방법2 (pathVariable - URL주소를 가변매개변수로 쓰는 방법)

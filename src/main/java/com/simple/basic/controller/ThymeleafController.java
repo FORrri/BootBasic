@@ -4,6 +4,7 @@ import com.simple.basic.command.TestVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -62,11 +63,11 @@ public class ThymeleafController {
         return "view/ex03_result";
     }
 
-    @GetMapping("/ex03_result2/{name}{/{age}")
+    @GetMapping("/ex03_result2/{name}/{age}")
     public String result2(@PathVariable("name") String name,
                           @PathVariable("age") int age) {
 
-        System.out.println(name + "-" +age);
+        System.out.println(name + "-" + age);
 
         return "view/ex03_result";
     }
@@ -99,6 +100,26 @@ public class ThymeleafController {
     @GetMapping("/ex06")
     public String ex06() {
         return "view/ex06";
+    }
+
+    @GetMapping("/quiz01")
+    public String quiz01(Model model) {
+
+        TestVO vo = TestVO.builder()
+                .num(1)
+                .name("홍길동")
+                .addr("서울시")
+                .age(20)
+                .build();
+
+        model.addAttribute("vo", vo);
+
+        return "view/quiz01";
+    }
+
+    @GetMapping("/quiz01_result")
+    public String quiz01_result(@ModelAttribute("num") String num) { //다음 화면에서 num이라는 이름으로 쓸수있게 해줌
+        return "view/quiz01_result";
     }
 
 
