@@ -8,7 +8,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "hello";
+        return "hello"; //디스패쳐서블릿으로 감
     }
 
 }

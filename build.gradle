@@ -30,7 +30,7 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools' //부트 dev모듈
 	annotationProcessor 'org.projectlombok:lombok' //롬복
 	testImplementation 'org.springframework.boot:spring-boot-starter-test' //테스트
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher' //테스트
 
 	//jsp를 뷰로 사용하려면
 //	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.83'

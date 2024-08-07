@@ -11,11 +11,12 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration //이거는 스프링 설정파일이야
-//@PropertySource("classpath:/hello.properties") //특정 properties파일은 참조받고 싶다면 이렇게 쓰기
+//@PropertySource("classpath:/hello.properties") //application.properties말고 다른 파일 참조받고 싶다면 @PropertySource
+                                                 //@Value는 application.properties 읽음
 public class WebConfig implements WebMvcConfigurer {
 
     /*
-    @Value("${server.port}") //application.properties파일의 키값을 읽어서 받아옴
+    @Value("${server.port}") //application.properties파일의 키값을 읽어서 값 출력
     String port;
 
     @Value("${hello}")
@@ -25,12 +26,12 @@ public class WebConfig implements WebMvcConfigurer {
     String bye;
 
     @Autowired
-    ApplicationContext applicationContext;
+    ApplicationContext applicationContext; //IOC컨테이너 역할
 
     //자바코드로 빈생성
     @Bean
     public TestVO testVO() {
-        return new TestVO(); //bean으로 등록
+        return new TestVO(); //testVO를 bean으로 등록
     }
 
     @Bean //스프링이 이 코드를 실행시켜서, 리턴에 담기는 값을 bean으로 등록
